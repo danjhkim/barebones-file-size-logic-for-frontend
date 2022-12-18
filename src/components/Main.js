@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 
 const Main = () => {
 	const [file, setFile] = useState(undefined);
-	const [list, setList] = useState(['kitty', 'dog', 'mushroom', 'human']);
+	const [list, setList] = useState([]);
 	const [auth, setAuth] = useState(true);
+	const [loading, setLoading] = useState(false);
 
 	const handleSubmit = async e => {
+		setLoading(true);
 		e.preventDefault();
 		if (file) {
 			if (file[0].size > 5000000) {
@@ -13,35 +15,46 @@ const Main = () => {
 				return;
 			}
 
-			let postData = await fetch('https://api.github.com/gists', {
-				method: 'post',
-				body: file[0],
-			});
+			const formData = new FormData();
+			formData.append('file', file[0]);
 
-			let res = await postData.json();
+			try {
+				let postData = await fetch('http://localhost:3093/upload', {
+					method: 'post',
+					body: formData,
+				});
 
-			if (res.statusCode === 200) {
-				alert('success');
-				console.log(res);
-				e.target[0].value = '';
-				setFile(undefined);
-			} else {
+				let res = await postData.json();
+
+				if (res.status === 200) {
+					alert('success');
+					console.log(res);
+					e.target[0].value = '';
+					setFile(undefined);
+					setLoading(false);
+				}
+			} catch (err) {
 				alert('Something went wrong');
-				console.log(res);
+				console.log(err);
+				setLoading(false);
 			}
 		} else {
 			alert('No File selected');
+			setLoading(false);
 		}
 	};
 
 	//! this should fetch list of files from backend
-	// useEffect(() => {
-	// 	(async () => {
-	// 		let res = await fetch('https://api.github.com/gists');
-	// 		let data = await res.json();
-	// 		setList(data);
-	// 	})();
-	// }, []);
+	useEffect(() => {
+		(async () => {
+			let res = await fetch('http://localhost:3093/list');
+			let data = await res.json();
+
+			let list = await data.list.Contents;
+
+			setList(list);
+		})();
+	}, []);
 
 	//! this should try to authenticate immediately to see if web token or cookie exists to login
 	// useEffect(() => {
@@ -62,11 +75,12 @@ const Main = () => {
 			return list.map((item, index) => {
 				return (
 					<li className='fileitem' key={index}>
+						{console.log(item.Key)}
 						<a
 							target='_blank'
 							rel='noreferrer'
-							href={`https://dfdjfdfdf/${item}`}>
-							{item}
+							href={`http://localhost:3093/download/${item.Key}`}>
+							{item.Key}
 						</a>
 					</li>
 				);

@@ -38,3 +38,21 @@ code {
   text-decoration: underline;
   font-weight: 800;
 }
+
+main {
+  position: relative;
+}
+
+.loader-block {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(173, 173, 173);
+  opacity: .7;
+  position: absolute;
+  display: none;
+  transition-duration: .2s;
+}
+
+.show {
+  display: block
+}
