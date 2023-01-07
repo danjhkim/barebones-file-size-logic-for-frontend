@@ -1,0 +1,16 @@
+.closeModal {
+    margin-top: 1em;
+    padding: 10px 20px;
+    width: auto;
+    background: #1abc9c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    clear: right;
+    -webkit-transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -ms-transition: 0.2s ease all;
+    -o-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+}

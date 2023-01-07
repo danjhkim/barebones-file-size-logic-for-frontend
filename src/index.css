@@ -1,46 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: #f2f2f2;
+  color: #333;
+  font-family: "Nunito";
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  /* or the minimum height of your content */
+  margin-right: auto;
+  /* 1 */
+  margin-left: auto;
+  /* 1 */
+
+  max-width: 960px;
+  /* 2 */
+
+  padding-right: 10px;
+  /* 3 */
+  padding-left: 10px;
+  /* 3 */
 }
 
-.nav a {
-  text-decoration: none;
-  color: black;
-}
-
-.nav a.active {
-  color: pink;
-}
-
-.listitems {
-  list-style-type: none;
-}
-
-.fileitem {
-  cursor: pointer;
-}
-
-.fileitem a {
-  text-decoration: none;
-  color: black;
-}
-
-.fileitem:hover {
-  text-decoration: underline;
-  font-weight: 800;
-}
-
-main {
-  position: relative;
+.main {
+  flex-grow: 1;
 }
 
 .loader-block {
@@ -53,6 +40,20 @@ main {
   transition-duration: .2s;
 }
 
-.show {
-  display: block
+footer {
+  display: block;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+  color: #777;
+  border-top: 1px solid #eaeaea;
+}
+
+.not-found {
+  text-align: center;
+}
+
+.not-found a {
+  color: #4979ff;
+  text-decoration: underline;
 }

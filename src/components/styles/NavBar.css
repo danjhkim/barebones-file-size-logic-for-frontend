@@ -1,0 +1,36 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: .2em 0 .2em 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #777;
+}
+
+.nav a.active {
+    color: black
+}
+
+nav {
+    margin: 10px auto 80px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    margin-left: 12px;
+}
+
+nav .logo {
+    margin-right: auto;
+}

@@ -1,0 +1,100 @@
+.title {
+    color: #333;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.text {
+    color: #777;
+}
+
+.form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.input {
+    font-size: 1.2rem;
+    color: #777;
+}
+
+#upload {
+    box-sizing: content-box;
+    white-space: nowrap;
+    display: block;
+    width: 80px;
+    padding: 10px 10px;
+    margin: 20px 40px;
+    background: rgb(217, 217, 217);
+    border-radius: 4px;
+    color: rgb(8, 8, 8);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn {
+    display: block;
+    width: 150px;
+    padding: 8px 0;
+    margin: 20px 40px;
+    background: #777;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+
+.btn:hover {
+    background: #4979ff;
+}
+
+.listitems {
+    padding-inline-start: 0px;
+}
+
+.fileitem {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-around;
+}
+
+.single {
+    padding: 2px 16px;
+    background: #fff;
+    margin: 20px 10px;
+    border-left: 8px solid #fff;
+
+
+
+}
+
+.single a {
+    font-size: 1.2rem;
+    color: #777;
+    text-decoration: none;
+}
+
+.single a:hover {
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.single:hover {
+    border-left: 8px solid rgb(161, 161, 161);
+}
+
+.delete {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.delete:hover {
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: 1.1rem;
+}
